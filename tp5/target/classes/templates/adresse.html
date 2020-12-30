@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Adresse</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+	<div th:fragment="header">
+		<a th:href="@{/greeting}">Greeting</a>
+		<a th:href="@{/addresses}">Addresses</a>
+		<a th:href="@{/adresse}">Adresse</a>
+	<div>
+	<form action="/meteo" method="post" modelAttribute="adresse">
+	<div>
+		<label for="address">Please input your adress :</label>
+		<input name ="address" id="address">
+	</div>
+	<div>
+		<button>Get the weather at the given address !</button>
+	</div>
+	</form>
+</body>
+</html>

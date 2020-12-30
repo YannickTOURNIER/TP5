@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Adresses</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+	<div th:fragment="header">
+		<a th:href="@{/greeting}">Greeting</a>
+		<a th:href="@{/addresses}">Addresses</a>
+		<a th:href="@{/adresse}">Adresse</a>
+	<div>
+	<h1>Les differentes adresses et noms</h1>
+	<ul th:each="address: ${allAddresses}">
+		<li th:text="${address.content}" />
+		<li th:text="${address.nom}" />
+		
+	</ul>
+	<h1>Les différents noms</h1>
+	<ul th:each="address: ${allAddresses}">
+		<li th:text="${address.nom}" />
+	</ul>
+</body>
+</html>

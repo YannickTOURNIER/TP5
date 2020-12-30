@@ -1,0 +1,55 @@
+Lien github:https://github.com/YannickTOURNIER/TP5
+
+Dépendances Maven:
+	Web: permet de créer des applications web utilisant le model MVC
+	JPA et Hibernate: permet de Stocker les données en sql et faire des requetes sql.
+	H2: permet la création de base de donnée de faible mémoire.
+	DevTools: Améliore la fluidité de l'application, recharge automatiquement la page et donne des outils pour développer plus facilement.
+	Thymeleaf: permet la création de template coté serveur de l'application web.
+
+Q13: 1.On a paramétré l'url d'appel /greeting grâce à @GetMapping et @RequestParam qui definit les deux url qui appellent le fichier greeting.html
+	   @RequestParam demande un paramètre nameGET qui est défini comme non obligatoire.
+	 2.La partie du code return "greeting"; permet de choisir le fichier HTML à afficher.
+	 3.On envoie le nom à qui nous disons bonjour avec le second lien grâce au model.addAttribute et @RequestParam.
+	   Si un paramètre a été rentré, le model va renvoyer le paramètre, sinon il renverra la valeur par défaut qui est World.
+
+
+Q17: création de la table Address
+Q18: Hibernate permet de créer des tables de petite taille à l'aide de code java.
+	 La table est définie par la classe Address.java. 
+Q20: a l'aide de la commande SELECT * FROM Address, on peut voir toute la table Address
+Q23: @Autowired permet de créer un chemin d'accès automatiquement entre AddressController et AddressRepository grâce aux dépendances de Spring.
+	 Quand AddressController va être appelé, il va appeler automatiquement AddressRepository.
+
+
+
+Question sur openweathermap:
+ Faut-il une clef API pour appeler OpenWeatherMap ?
+	D'apres la documentation sur les API de openweathermap, il faut une clef api pour utiliser openweathermap
+ Quelle URL appeler ?
+ 	il faut appeler l'url "api.openweathermap.org/data/2.5/weather?q="
+ 	apres q=, il faut ajouter la clef API et des informations sur la ville qui peuvent être son nom,
+ 	ses coordonnées, son id etc.
+ 	Dans notre cas on appelle l'url "api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}"
+ 	en remplacant les champs {lat},{lon} et {API key} par leurs données.
+ Quelle methode HTTP utiliser ?
+ 	On utilise la methode http post pour transmettre l'adresse de la page adresse.html à meteo.html
+ 	L'API de openweathermap fonctionne en methode http get.
+ Comment passer les paramètres d'appels ?
+ 	On utilise les données reçues grâce à l'API "https://api-adresse.data.gouv.fr/search/?q="
+ 	suivi de l'adresse dont on veut les coordonnées comme paramètre.
+ 	On les passe en paramètre grâce à RestTemplate et sa méthode getForObject.
+ Où est l'information dont j'ai besoin dans la reponse :
+ 	Pour afficher la temperature du lieu visé par les coordonnées GPS:
+	 	L'information se trouve dans le document JSON de openweathermap dans la catégorie main.
+	 	L'attribut de main qui nous donne sa température est l'attribut temp.
+ 	Pour afficher la prevision de meteo du lieu visé par les coordonnées GPS:
+ 		il faut faire appel a une autre url, l'url "api.openweathermap.org/data/2.5/forecast?lat=_&lon=_&appid={API key}"
+ 		On aura une liste de températures prévues pour différentes heures et sur 5 jours.
+ 		
+ 		
+ Je n'ai pas pu tester mon application à partir de l'étape 2 question 2 suite à une erreur que je n'ai pas réussi à résoudre.
+ (j'ai supprimmé les dossiers, les dépendances, fait un maven clean mais rien n'a fonctionné. Je ne pouvais pas non plus changer le classpath)
+ 	
+ 	
+ 	

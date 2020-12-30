@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Meteo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+	<div th:fragment="header">
+		<a th:href="@{/greeting}">Greeting</a>
+		<a th:href="@{/addresses}">Addresses</a>
+		<a th:href="@{/adresse}">Adresse</a>
+	<div>
+	<p th:text="'adresse demandé '+${nomAdresse}" />
+	<p th:text="'La température est de : '+${temp}"/>
+	<p th.text="'Le temps est : '+${weather}"/>
+	<p th.text="'prediction pour les 5 prochains jours/3h'+${predeiction}"/>
+</body>
+</html>
